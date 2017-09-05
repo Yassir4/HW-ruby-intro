@@ -9,10 +9,10 @@ def sum(array)
 		end
 		return s
     else return 0
-    end
+	end
 end
 
-puts sum([1,2,3,4])
+#puts sum([1,2,3,4])
 
 # this method takes an array of integers as an argument and returns the sum of its two largest elements
 def max_2_sum(array)
@@ -32,9 +32,10 @@ def max_2_sum(array)
 	end
 end
 
-puts max_2_sum ([80])
+#puts max_2_sum ([80])
 
-#this method takes an array of integers and an additional integer,n,as arguments and returns true if any two elements in the array of integers sum to n
+#this method takes an array of integers and an additional integer
+# n,as arguments and returns true if any two elements in the array of integers sum to n
 
 def sum_to_n?(array,n)
 	result = false
@@ -51,27 +52,29 @@ def sum_to_n?(array,n)
 	return result
 end
 
-p = sum_to_n?([6,10,2,3],4)
-puts p
+#p = sum_to_n?([6,10,2,3],4)
+#puts p
 
 #------------------------------------------------ PART 2 : Strings and Regular Expressions -----------------------------------------------
 
 def hello(name)
 	puts "hello #{name}"
 end
-hello("yassir")
 
-#check if the string begin with a constant 
+#hello("yassir")
+
+#--check if the string begin with a constant 
 def starts_with_consonant?(s) 
  	if 	/^[^aeiou\W]/i.match(s) == nil
  		return true
  	else
  		return false 
  	end
- end
-puts starts_with_consonant?('shello')
+end
 
-#
+#puts starts_with_consonant?('shello')
+
+ 
  def binary_multiple_of_4?(s)
  	if s.length == 4 || s.length == 0
  		return true
@@ -79,26 +82,27 @@ puts starts_with_consonant?('shello')
  		return false
  	end
  end
- puts binary_multiple_of_4?('')
+ #puts binary_multiple_of_4?('')
 
 
 
 #------------------------------------------------ PART 3 : Object Oriented Basics -----------------------------------------------
 class BookInStock 
-	def initialize(ispn , price)
+	def initialize(ispn,price)
 		@ispn=ispn
 		@price=price
-	end
-
-	def ispn
-		@ispn
+		
+		# exeption 
+		if @ispn.nil? || @price <= 0 
+			raise ArgumentError
+		end
 	end
 	
-	def price
-		@price
-	end
-
-
+	attr_reader :ispn
+	attr_reader :price
 
 end
+
+
+
 
