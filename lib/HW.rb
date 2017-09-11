@@ -19,7 +19,7 @@ def max_2_sum(array)
 	max1 = 0
 	max2 = 0 
 	sum = 0
-	if array.length >1
+	if array.length > 1
 		max1 =array.sort[-1]
 		max2 = array.sort[-2]
 		sum = max1 + max2 
@@ -31,8 +31,6 @@ def max_2_sum(array)
 		end 
 	end
 end
-
-#puts max_2_sum ([80])
 
 #this method takes an array of integers and an additional integer
 # n,as arguments and returns true if any two elements in the array of integers sum to n
@@ -52,16 +50,11 @@ def sum_to_n?(array,n)
 	return result
 end
 
-#p = sum_to_n?([6,10,2,3],4)
-#puts p
-
 #------------------------------------------------ PART 2 : Strings and Regular Expressions -----------------------------------------------
 
 def hello(name)
 	puts "hello #{name}"
 end
-
-#hello("yassir")
 
 #--check if the string begin with a constant 
 def starts_with_consonant?(s) 
@@ -76,34 +69,34 @@ end
 
  
  def binary_multiple_of_4?(s)
- 	if s.length == 4 || s.length == 0
- 		return true
+ 	if  /^[01]*(00)$/.match(s)
+  		return true
  	else
  		return false
  	end
  end
- #puts binary_multiple_of_4?('')
-
-:q
-:w
-:s
-:x
 
 
 #------------------------------------------------ PART 3 : Object Oriented Basics -----------------------------------------------
 class BookInStock 
-	def initialize(ispn,price)
-		@ispn=ispn
+	def initialize(isbn,price)
+		@isbn=isbn
 		@price=price
-		
 		# exeption 
-		if @ispn.nil? || @price <= 0 
+		if @isbn.empty? || @price <= 0 
 			raise ArgumentError
 		end
 	end
 	
-	attr_reader :ispn
-	attr_reader :price
+	attr_accessor :isbn
+	attr_accessor :price
+
+	def price_as_string
+		"$#{'%.2f' %  @price}"
+	end
 
 end
-Rspec.describe
+
+
+
+
